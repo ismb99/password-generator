@@ -3,12 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@400;500&family=Karla:wght@400;800&display=swap"
-      rel="stylesheet"
-    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
@@ -16,70 +10,67 @@
     <link rel="stylesheet" href="style.css" />
     <title>Random Password Generator</title>
   </head>
-
   <body>
     <div class="container">
       <header class="headerDark">
-        <i class="bi bi-brightness-high-fill"></i>
+        <i class="bi bi-brightness-high-fill" id="toggleMode"></i>
       </header>
 
       <div class="passwordGeneratorContainer">
-        <h1 class="title">
-          Generate a <br />
-          <span>random password</span>
-        </h1>
+        <h1 class="title">Generate a <br /><span>random password</span></h1>
         <p class="text">Never use an insecure password again.</p>
 
         <div>
-          <label for="passwordLength">Choose password length</label>
+          <label for="passwordLength">Password Length:</label>
           <input
             type="number"
             id="passwordLength"
             name="passwordLength"
-            min="1"
-            max="15"
-            value="7"
+            min="8"
+            max="32"
+            value="12"
+            aria-describedby="lengthDescription"
           />
+          <span id="lengthDescription"
+            >Choose a length between 8 and 32 characters</span
+          >
+
           <label for="checkbox-symbols">Symbols</label>
           <input
             type="checkbox"
             id="checkbox-symbols"
             class="custom-checkbox"
           />
+
           <label for="checkbox-numbers">Numbers</label>
           <input
             type="checkbox"
             id="checkbox-numbers"
             class="custom-checkbox"
           />
-          <button class="btn">Generate passwords</button>
+
+          <button class="btn" id="generateButton">Generate passwords</button>
         </div>
 
         <hr class="sectionDivider" />
-        <div class="generatedPasswordsDisplay">
-          <div class="passText generatedPasswordDisplay1"></div>
-          <div class="copyMessage copyMessage1" style="display: none">
-            Copied!
-          </div>
-          <i class="copy-pass1 bi bi-copy"></i>
 
-          <div class="passText generatedPasswordDisplay2"></div>
-          <div class="copyMessage copyMessage2" style="display: none">
-            Copied!
+        <div class="generatedPasswordsDisplay">
+          <div class="passwordContainer">
+            <div class="passText" id="passwordDisplay1"></div>
+            <div class="copyMessage" id="copyMessage1">Copied!</div>
+            <i class="bi bi-copy copy-pass" id="clipboard1"></i>
+            <div class="strengthDisplay" id="strength1"></div>
           </div>
-          <i class="copy-pass2 bi bi-copy"></i>
+          <div class="passwordContainer">
+            <div class="passText" id="passwordDisplay2"></div>
+            <div class="copyMessage" id="copyMessage2">Copied!</div>
+            <i class="bi bi-copy copy-pass" id="clipboard2"></i>
+            <div class="strengthDisplay" id="strength2"></div>
+          </div>
         </div>
       </div>
     </div>
 
     <script src="index.js"></script>
   </body>
-
-  <!-- <body>
-    <div class="container">
-      <header class="headerDark">
-        <i class="bi bi-brightness-high-fill"></i>
-      </header>
-    </div>
-  </body> -->
 </html>
